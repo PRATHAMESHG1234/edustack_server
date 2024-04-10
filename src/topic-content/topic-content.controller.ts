@@ -7,8 +7,10 @@ export class TopicContentController {
   constructor(private readonly topicContentService: TopicContentService) {}
 
   @Get()
-  async getAllTopicContents(): Promise<TopicContent[]> {
-    return this.topicContentService.getAllTopicContents();
+  async getAllTopicContents(
+    @Param('topicId') topicId: string,
+  ): Promise<TopicContent[]> {
+    return this.topicContentService.getAllTopicContents(topicId);
   }
 
   @Post()

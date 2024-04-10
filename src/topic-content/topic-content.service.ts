@@ -9,9 +9,8 @@ export class TopicContentService {
     @InjectModel('TopicContent')
     private readonly topicContentModel: Model<TopicContent>,
   ) {}
-
-  async getAllTopicContents(): Promise<TopicContent[]> {
-    return this.topicContentModel.find().exec();
+  async getAllTopicContents(topicId: string): Promise<TopicContent[]> {
+    return this.topicContentModel.find({ topicId }).exec();
   }
 
   async createTopicContent(topicContent: TopicContent): Promise<TopicContent> {
