@@ -6,7 +6,7 @@ import { TopicContentService } from './topic-content.service';
 export class TopicContentController {
   constructor(private readonly topicContentService: TopicContentService) {}
 
-  @Get()
+  @Get(':topicId/contents') // Endpoint path with :topicId parameter
   async getAllTopicContents(
     @Param('topicId') topicId: string,
   ): Promise<TopicContent[]> {
